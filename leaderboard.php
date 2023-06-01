@@ -21,18 +21,25 @@
     $rows = $db->query("SELECT COUNT(*) as count FROM participants");
     $row = $rows->fetchArray();
     $numrows = $row['count'];
+    $arrayforwinner = array();
 
 
+    while($dorm_list = $list_results->fetchArray())
+        {
 
-    /*$statement = 'SELECT affiliation FROM participants GROUP BY affiliation HAVING COUNT(*)='.max($sproul, $deneve, $sunset, $rieber, $hedrick, $olympic);
+            $rows = $db -> query('SELECT COUNT(*) as count FROM participants WHERE affiliation="'.$dorm_list['affiliation'].'"');
+            $row = $rows->fetchArray();
+            $arrayforwinner[] = $row['count'];
+
+        }
+    $statement = 'SELECT affiliation FROM participants GROUP BY affiliation HAVING COUNT(*)='.max($arrayforwinner);
     $results = $db->query($statement);
     $row = $results->fetchArray();
     $i = 1;
     while ($i<2){
     $winner = $row['affiliation'];
     $i+=1;
-}*/
-    $winner = "i have to code it"
+}
 
 ?>
 
@@ -65,7 +72,6 @@
             $row = $rows->fetchArray();
             echo "<td>".$dorm_list['affiliation']."</td>";
             echo "<td>".$row['count']."</td></tr>";
-
         }
             echo "</table>";
             $db->close();
