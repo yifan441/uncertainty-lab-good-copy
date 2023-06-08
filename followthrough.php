@@ -14,6 +14,11 @@
         phpalert($_SESSION["message"]);
         $_SESSION["message"] = "";
     }
+
+    $_SESSION['referrer'] = $_SERVER['HTTP_REFERER'];
+    echo $_SESSION['referrer'];
+
+
 ?>
 
 <!DOCTYPE html>

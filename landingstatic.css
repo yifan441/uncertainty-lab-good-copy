@@ -4,7 +4,7 @@ body {
 
 #commit-section {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: white;
 }
 
@@ -41,7 +41,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 100px;
+  margin-bottom: auto;
   width: 400px;
   height: auto;
 }
@@ -60,7 +60,7 @@ body {
 
 #dashboard-div > p {
   font-size: 40px;
-  margin: 58px 70px 60px;
+  margin: 58px 70px 35px;
 }
 
 #dashboard-btn {
@@ -73,7 +73,7 @@ body {
   border: 1.5px solid #172b92;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #dashboard-btn:hover {

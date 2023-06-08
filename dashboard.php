@@ -34,6 +34,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="dashboard.css">
         <title>Precommitment Dashboard</title>
     </head>
 
@@ -45,25 +46,27 @@
         <main>
             <h3><?php echo $numrows; ?> people have committed! Click <a href="leaderboard.php">here</a> to check out the Leaderboard.</h3>
             <?php
-            echo "<table style=\"border:1px solid black\">
+            echo "<table style=\"border:1px solid black\" id=\"dashtb\">
             <tr>
             <th>Name</th>
             <th>Dorm</th>
             <th>Date of Committement</th>
-            <th>Committed?</th>
+            <th>Followed Through?</th>
             </tr>";
             while($name_list = $list_results->fetchArray())
             {
                 echo "<tr>";
                 echo "<td>".$name_list['firstname']." ".mb_substr($name_list['lastname'], 0, 1)."."."</td>";
                 echo "<td>".$name_list['affiliation']."</td>";
-                echo "<td>".$name_list['cdate']."</td>"; 
+                echo "<td>".$name_list['cdate']."</td>";
+                echo "<td> <label class=\"container\">";
                 if ($name_list['followup']==0){
-                    echo "<td> <input type=\"checkbox\" disabled=\"disabled\"> </td>"; 
+                    echo "<input type=\"checkbox\" disabled=\"disabled\">"; 
                 }
                 else {
-                    echo "<td> <input type=\"checkbox\" disabled=\"disabled\" checked=\"checked\"> </td>";
+                    echo "<input type=\"checkbox\" disabled=\"disabled\" checked=\"checked\">";
                 } 
+                echo "<span class=\"checkmark\"></span></label></td>";
                 echo "</tr>";
             }
             echo "</table>";
